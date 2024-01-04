@@ -5,7 +5,7 @@
   "dependencies": {
     "@alan-ai/alan-sdk-web": "^1.8.28",
     "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0", 
+    "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.0.3",
     "@mui/material": "^5.0.3",
     "@mui/styles": "^5.0.1",
@@ -44,12 +44,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0"
-    
   }
 }
