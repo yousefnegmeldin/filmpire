@@ -3,11 +3,14 @@ import { Divider, List, ListItem, ListItemText, ListSubheader, ListItemIcon, Box
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/styles';
 import useStyles from './styles';
+import { useGetGenresQuery } from '../../services/TMDB';
+import genreIcons from '../../assets/genres';
 
 const Sidebar = ({ setMobileOpen }) => {
   const theme = useTheme();
   const classes = useStyles();
-
+  const { data, error, isFetching } = useGetGenresQuery();
+  console.log(data);
   const categories = [{ label: 'Popular', value: 'popular' },
     { label: 'Top Rated', value: 'top_rated' },
     { label: 'Upcoming', value: 'upcoming' }];
@@ -41,16 +44,23 @@ const Sidebar = ({ setMobileOpen }) => {
       <Divider />
       <List>
         <ListSubheader>Genre</ListSubheader>
-        {demoCategories.map(({ label, value }) => (
-          <Link key={value} className={classes.links} to="/">
-            <ListItem onClick={() => {}} button>
-              {/* <ListItemIcon>
-                <img src={redLogo} className={classes.genreImages} height={30} />
-              </ListItemIcon> */}
-              <ListItemText primary={label} />
-            </ListItem>
-          </Link>
-        ))}
+
+        {isFetching
+          ? (
+            <Box display="flex" justifyContent="center">
+              <CircularProgress size="4rem" />
+            </Box>
+          )
+          : data.genres.map(({ name, id }) => (
+            <Link key={id} className={classes.links} to="/">
+              <ListItem onClick={() => {}} button>
+                <ListItemIcon>
+                  <img src={genreIcons[name.toLowerCase()]} className={classes.genreImages} height={30} />
+                </ListItemIcon>
+                <ListItemText primary={name} />
+              </ListItem>
+            </Link>
+          ))}
       </List>
     </>
   );
