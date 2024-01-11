@@ -1,7 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { userSelector } from '../../features/auth';
 
-const ProfilePage = () => (
-  <div>ProfilePage</div>
-);
+const ProfilePage = () => {
+  console.log('');
+  const { user } = useSelector(userSelector);
+
+  return (
+    <div>
+      Profile : {user.username}
+    </div>
+  );
+};
 
 export default ProfilePage;
