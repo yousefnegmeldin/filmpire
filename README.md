@@ -10,7 +10,7 @@
 
 ## Tech Stack
 
- React, Redux, Material UI
+ React, Material UI, JavaScript, Redux,
  
 <div align="center">
     <img src="https://skillicons.dev/icons?i=react,mui,javascript,redux" />
