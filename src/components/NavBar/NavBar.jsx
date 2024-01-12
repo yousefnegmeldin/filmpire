@@ -25,13 +25,10 @@ const NavBar = () => {
       if (token) {
         if (sessionIdLocalStorage) {
           const { data: userData } = await moviesApi.get(`/account?session_id=${sessionIdLocalStorage}`);
-
           dispatch(setUser(userData));
         } else {
           const sessionId = await createSessionId();
-
           const { data: userData } = await moviesApi.get(`/account?session_id=${sessionId}`);
-
           dispatch(setUser(userData));
         }
       }
@@ -59,8 +56,8 @@ const NavBar = () => {
                 Login &nbsp; <AccountCircle />
               </Button>
             ) : (
-              <Button color="inherit" component={Link} to={`/profile/${user.id}`} className={classes.linkButton} onClick={() => {}}>
-                {!isMobile && <>My Movies &nbsp;</>}
+              <Button sx={{ textTransform: 'lowercase' }} color="inherit" component={Link} to={`/profile/${user.id}`} className={classes.linkButton} onClick={() => {}}>
+                {!isMobile && <>{user.username ? <>{JSON.stringify(user.username).slice(1, JSON.stringify(user.username).length - 1)} &nbsp;</> : <>My Movies &nbsp;</>}</>}
                 <Avatar
                   style={{ width: 30, height: 30 }}
                   alt="profile"
