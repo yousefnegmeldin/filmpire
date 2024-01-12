@@ -1,70 +1,34 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Filmpire - Your Movie Companion!
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Logo](https://fontmeme.com/permalink/210930/6854ae5c7f76597cf8680e48a2c8a50a.png)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+ React, Redux, Material UI
+ 
+<div align="center">
+    <img src="https://skillicons.dev/icons?i=react,bootstrap,mui,html,css,vscode,github,figma,tailwind,git,r" />
+    <img src="https://skillicons.dev/icons?i=nodejs,python,javascript,typescript,express,firebase,mongodb,c,java,nextjs,mysql,flask" /><br>
+</div>
+# My Diary
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Navbar
+Navbars were always a struggle for me, I always saw them as the most troublesome component in every web app for some reason. Building this NavBar was such a huge challenge to understand using material UI, but i eventually understood everything and got the hang of it. The Navbar in material ui is actually called AppBar which is interesting, and defaults with blue look to it. Material UI removes the hastle of positioning the Navbar which used to always be my problem which I am grateful for. The Navbar consists of a toolbar, a search field, a dark mode toggle, and a login button.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Sidebar
 
-### `npm run eject`
+I would have never known how to implement this without scowering the internet for resources, but again thankfully material ui provides it, and automatically positions it to the left. The sidebar is mobile responsive with simple media queries and allows for scrolling. Nothing much to talk about here except the fact that it is just a bunch of nested list components already provided by material UI.
+## MovieList & Movies & Movie
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Movies is the parent component, MovieList is its child and the last child is the Movie. Movies passes down a {movies} prop to MovieList and fetches movies using a react redux query to the tmdb API and it is the first occurence of the react redux state management workflow in this project. After the movies are fetched, this data is then passed on to MovieList and there i map over the result object to display each object as a singular, ofcousre passing the data of each movie as a prop. I also used <Grid> from material UI and i love how you can specify how many items you want displayed depending on the media query from just the props. for example xs={12} would display only 1 component on small devices,
+while xl={2} would display 6.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Authentication
+By far the hardest part of this application, there was so much redux boilerplate code and hard concepts to grab at first such as what the useSelector() does or what is the point of useDispatch(). Anyhow, authentication here was provided by tmdb as session ids and tokens, using get requests to recieve a token and post requests to create a new session. And after many hours of debugging and following their documentation and queries, i finally made it work. I'd always get a 401 error because session_id would be undefined and i realized i had a small logical error somewhere in my code that just ruined everything.
