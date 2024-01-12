@@ -14,7 +14,7 @@
  
 <div align="center">
     <img src="https://skillicons.dev/icons?i=react,mui,javascript,redux" />
-    <img src="https://skillicons.dev/icons?i=nodejs,python,javascript,typescript,express,firebase,mongodb,c,java,nextjs,mysql,flask" /><br>
+    <br>
 </div>
 
 ## My Diary
