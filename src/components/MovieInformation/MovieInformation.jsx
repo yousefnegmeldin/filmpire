@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Tooltip, Typography, Button, ButtonGroup, Grid, Box, CircularProgress, useMediaQuery, Rating } from '@mui/material';
 import { Movie as MovieIcon, Theaters, Language, PlusOne, Favorite, FavoriteBorderOutlined, Remove, ArrowBack } from '@mui/icons-material';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { ClassNames } from '@emotion/react';
@@ -17,6 +17,7 @@ const MovieInformation = () => {
   const { data, isFetching, error } = useGetMovieQuery(id);
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [isMovieFavorited, setIsMovieFavorited] = useState(true);
   const [isMovieWatchlisted, setIsMovieWatchlisted] = useState(true);
@@ -39,7 +40,7 @@ const MovieInformation = () => {
   if (error) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center">
-        <Link to="/">
+        <Link to={history.goBack()}>
           <div>
             <ArrowBack /> Something went wrong
           </div>
