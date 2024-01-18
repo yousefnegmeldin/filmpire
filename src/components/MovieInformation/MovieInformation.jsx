@@ -51,7 +51,7 @@ const MovieInformation = () => {
   }
 
   return (
-    <Grid container className={classes.container}>
+    <Grid container className={classes.containerSpaceAround}>
       <Grid item sm={12} lg={4} style={{ display: 'flex', marginBottom: '30px' }}>
         <img
           className={classes.poster}
