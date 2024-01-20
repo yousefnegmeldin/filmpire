@@ -25,6 +25,45 @@
 - Dark mode
 - Genre Filter
 
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://link-to-project
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install --legacy-peer-deps
+```
+
+Start the server
+
+```bash
+  npm start
+```
+
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`DISABLE_ESLINT_PLUGIN`
+
+`REACT_APP_TMDB_KEY`
+
+
 # My Diary
 
 ## Navbar
