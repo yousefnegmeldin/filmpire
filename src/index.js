@@ -7,17 +7,17 @@ import { Provider } from 'react-redux';
 import store from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ToggleColorModeProvider from './utils/ToggleColorMode';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const theme = createTheme({});
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
+      <ToggleColorModeProvider>
         <BrowserRouter>
           <App />
         </BrowserRouter>
-      </ThemeProvider>
+      </ToggleColorModeProvider>
     </Provider>
   </React.StrictMode>,
 );

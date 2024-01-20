@@ -15,7 +15,10 @@ const Sidebar = ({ setMobileOpen }) => {
   const { data, isFetching } = useGetGenresQuery();
   const dispatch = useDispatch();
 
-  console.log(genreIdOrCategoryName);
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [genreIdOrCategoryName]);
+
   const categories = [{ label: 'Popular', value: 'popular' },
     { label: 'Top Rated', value: 'top_rated' },
     { label: 'Upcoming', value: 'upcoming' }];
