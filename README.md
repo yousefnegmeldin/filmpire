@@ -25,7 +25,7 @@
 - Dark mode
 - Genre Filter
 
-## My Diary
+# My Diary
 
 ## Navbar
 Navbars were always a struggle for me, I always saw them as the most troublesome component in every web app for some reason. Building this NavBar was such a huge challenge to understand using material UI, but i eventually understood everything and got the hang of it. The Navbar in material ui is actually called AppBar which is interesting, and defaults with blue look to it. Material UI removes the hastle of positioning the Navbar which used to always be my problem which I am grateful for. The Navbar consists of a toolbar, a search field, a dark mode toggle, and a login button.
